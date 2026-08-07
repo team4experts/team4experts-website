@@ -1,0 +1,53 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "content/images"
+public_folder: "/content/images"
+
+collections:
+  - name: "site_data"
+    label: "Съдържание на сайта"
+    files:
+      - name: "data"
+        label: "Основни данни"
+        file: "content/site-data.json"
+        fields:
+          - { label: "Телефон", name: "phone", widget: "string" }
+          - { label: "Имейл", name: "email", widget: "string" }
+
+          - label: "Услуги"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Кратък код (без интервали, латиница)", name: "slug", widget: "string" }
+              - { label: "Икона (емоджи)", name: "icon", widget: "string" }
+              - { label: "Заглавие", name: "title", widget: "string" }
+              - { label: "Кратко описание (на картичката)", name: "short_description", widget: "text" }
+              - { label: "Подробно описание (в прозореца)", name: "long_description", widget: "text" }
+
+          - label: "Проекти"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Заглавие на проекта", name: "title", widget: "string" }
+              - { label: "Локация", name: "location", widget: "string" }
+              - { label: "Номер на договор (по желание)", name: "contract_code", widget: "string", required: false }
+              - { label: "Стойност (по желание)", name: "value", widget: "string", required: false }
+              - label: "Свързана услуга"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Проектиране и инженеринг", value: "proektirane" }
+                  - { label: "Енергийно обследване на сгради", value: "energien-obsledvane" }
+                  - { label: "Енергийно планиране", value: "energiyno-planirane" }
+                  - { label: "Консултации по европроекти", value: "evroproekti" }
+                  - { label: "Управление на проекти", value: "upravlenie-proekti" }
+              - { label: "Описание", name: "description", widget: "text" }
+              - label: "Снимки"
+                name: "images"
+                widget: "list"
+                field: { label: "Снимка", name: "image", widget: "image", required: false }
+                required: false

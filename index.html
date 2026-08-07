@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тийм Експерти — Инженерни решения и енергийна ефективност</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --bg-alt:#f4f7fb; --card:#ffffff; --line:#e2e8f0;
+    --ink:#101827; --muted:#5b6b7c;
+    --blue:#14538f; --blue-deep:#0b3a63; --blue-soft:#eaf2fa; --amber:#e08a2c;
+    --radius:12px; --maxw:1180px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:'Space Grotesk',sans-serif; margin:0; letter-spacing:-0.01em; color:var(--blue-deep); }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+  section{ position:relative; }
+  img{ max-width:100%; display:block; }
+
+  .illustration{ border-radius:var(--radius); overflow:hidden; }
+  .illu-skyline{ background:linear-gradient(180deg,#dfeefb 0%,#ffffff 100%); aspect-ratio:4/3; display:flex; align-items:flex-end; }
+  .illu-thermo{ background:linear-gradient(135deg,var(--blue-soft),#fff); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; }
+
+  header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:80px; }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:1.08rem; color:var(--blue-deep); }
+  .logo-mark{ width:36px; height:36px; border-radius:9px; background:linear-gradient(135deg,var(--blue),var(--amber)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.85rem; }
+  .nav-links{ display:flex; gap:32px; align-items:center; }
+  .nav-links a{ text-decoration:none; color:var(--muted); font-size:0.92rem; font-weight:500; transition:color .2s; }
+  .nav-links a:hover{ color:var(--blue); }
+  .nav-right{ display:flex; align-items:center; gap:20px; }
+  .phone-badge{ display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono'; font-size:0.85rem; color:var(--blue-deep); text-decoration:none; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:999px; font-size:0.9rem; font-weight:600; text-decoration:none; border:1px solid transparent; cursor:pointer; transition:transform .15s, box-shadow .15s; }
+  .btn-primary{ background:var(--blue); color:#fff; box-shadow:0 6px 16px -6px rgba(20,83,143,0.5); }
+  .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 10px 20px -6px rgba(20,83,143,0.55); }
+  .btn-ghost{ border-color:var(--line); color:var(--blue-deep); }
+  .btn-ghost:hover{ border-color:var(--blue); }
+  @media (max-width:900px){ .nav-links{ display:none; } }
+
+  .hero{ padding:76px 0 90px; background:linear-gradient(180deg,var(--bg-alt) 0%,#fff 100%); }
+  .hero .wrap{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; }
+  @media (max-width:900px){ .hero .wrap{ grid-template-columns:1fr; } }
+  .eyebrow{ display:inline-flex; align-items:center; gap:9px; font-family:'IBM Plex Mono'; font-size:0.76rem; letter-spacing:.03em; color:var(--blue); background:var(--blue-soft); padding:7px 14px; border-radius:999px; margin-bottom:22px; }
+  .hero h1{ font-size:clamp(2.1rem,4.4vw,3.2rem); font-weight:700; line-height:1.12; }
+  .hero .accent{ color:var(--amber); }
+  .hero p.lead{ margin-top:20px; font-size:1.06rem; color:var(--muted); max-width:520px; }
+  .hero-ctas{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+  .stats{ background:var(--blue-deep); }
+  .stats .wrap{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; padding:44px 28px; }
+  .stat b{ font-family:'IBM Plex Mono'; font-size:1.9rem; color:#fff; display:block; }
+  .stat span{ color:#a9c2da; font-size:0.85rem; }
+  @media (max-width:700px){ .stats .wrap{ grid-template-columns:repeat(2,1fr); } }
+
+  .section-pad{ padding:92px 0; }
+  .section-head{ max-width:640px; margin:0 auto 52px; text-align:center; }
+  .section-head .tag{ font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--amber); letter-spacing:.03em; display:block; margin-bottom:12px; }
+  .section-head h2{ font-size:clamp(1.7rem,3vw,2.3rem); }
+  .section-head p{ color:var(--muted); margin-top:14px; }
+
+  .about{ background:var(--bg-alt); }
+  .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center; }
+  @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ color:var(--muted); margin:0 0 16px; }
+
+  .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  @media (max-width:900px){ .services-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:620px){ .services-grid{ grid-template-columns:1fr; } }
+  .service-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:28px 24px; transition:box-shadow .2s, transform .2s; cursor:pointer; text-align:left; font-family:inherit; }
+  .service-card:hover{ box-shadow:0 14px 30px -18px rgba(20,83,143,0.35); transform:translateY(-3px); border-color:var(--blue); }
+  .service-card .icon{ width:44px; height:44px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:1.2rem; }
+  .service-card h3{ font-size:1.04rem; margin-bottom:8px; }
+  .service-card p{ color:var(--muted); font-size:0.92rem; margin:0; }
+  .service-card .more{ margin-top:14px; font-size:0.82rem; color:var(--blue); font-weight:600; }
+
+  .contact-box{ background:linear-gradient(135deg,var(--blue-deep),var(--blue)); border-radius:20px; padding:52px; text-align:center; color:#fff; }
+  .contact-box h2{ color:#fff; font-size:clamp(1.6rem,3vw,2.1rem); margin-bottom:14px; }
+  .contact-box p{ color:#cfe0f0; max-width:480px; margin:0 auto 30px; }
+  .contact-box .btn-primary{ background:#fff; color:var(--blue-deep); }
+  .contact-details{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-top:36px; font-size:0.92rem; color:#cfe0f0; }
+  .contact-details b{ display:block; color:#fff; font-family:'IBM Plex Mono'; font-size:0.88rem; margin-top:4px; }
+  .contact-details a{ text-decoration:none; }
+
+  footer{ border-top:1px solid var(--line); padding:32px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; color:var(--muted); font-size:0.82rem; }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } .reveal{ opacity:1; transform:none; transition:none; } }
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(11,58,99,0.55);
+    display:none; align-items:center; justify-content:center; padding:24px; z-index:100;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal{
+    background:#fff; border-radius:16px; max-width:640px; width:100%;
+    max-height:85vh; overflow-y:auto; padding:36px; position:relative;
+  }
+  .modal-close{
+    position:absolute; top:18px; right:18px; width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--line); background:#fff; cursor:pointer; font-size:1rem; color:var(--muted);
+  }
+  .modal-close:hover{ background:var(--bg-alt); }
+  .modal h3{ font-size:1.3rem; margin-bottom:10px; padding-right:30px; }
+  .modal .modal-desc{ color:var(--muted); margin-bottom:22px; }
+  .modal-project{ border-top:1px solid var(--line); padding:18px 0; }
+  .modal-project:first-of-type{ border-top:none; }
+  .modal-project-title{ font-weight:600; margin-bottom:4px; }
+  .modal-project-loc{ color:var(--muted); font-size:0.86rem; margin-bottom:6px; }
+  .modal-project-desc{ color:var(--muted); font-size:0.9rem; margin-bottom:10px; }
+  .modal-project-meta{ display:flex; gap:16px; flex-wrap:wrap; font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--blue); }
+  .modal-project-images{ display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+  .modal-project-images img{ width:90px; height:70px; object-fit:cover; border-radius:6px; border:1px solid var(--line); }
+  .modal-empty{ color:var(--muted); font-size:0.92rem; padding:20px 0; text-align:center; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo"><div class="logo-mark">TE</div>Тийм Експерти</div>
+    <div class="nav-links">
+      <a href="#uslugi">Услуги</a>
+      <a href="#proekti">Проекти</a>
+      <a href="#za-nas">За нас</a>
+      <a href="#kontakti">Контакти</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+359889596507" class="phone-badge" id="nav-phone">☎ +359 889 596 507</a>
+      <a href="#kontakti" class="btn btn-primary">Запитване</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">ЕИК 200858531 · гр. Варна</div>
+      <h1>Инженерни решения за <span class="accent">по-ефективни</span> сгради</h1>
+      <p class="lead">От 2009 г. изпълняваме проекти за енергийна ефективност, проектиране и консултиране по европейски програми — с доказан опит в реални обекти в цялата страна.</p>
+      <div class="hero-ctas">
+        <a href="#kontakti" class="btn btn-primary">Заявете консултация</a>
+        <a href="#proekti" class="btn btn-ghost">Вижте проектите ни</a>
+      </div>
+    </div>
+    <div class="illustration illu-skyline reveal">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="140" width="70" height="200" fill="#c9dcee"/>
+        <rect x="120" y="90" width="90" height="250" fill="#a9c8e6"/>
+        <rect x="220" y="150" width="60" height="190" fill="#c9dcee"/>
+        <rect x="290" y="60" width="100" height="280" fill="#7fb0dc"/>
+        <rect x="400" y="120" width="60" height="220" fill="#a9c8e6"/>
+        <g fill="#e08a2c"><rect x="50" y="160" width="12" height="12"/><rect x="70" y="160" width="12" height="12"/><rect x="50" y="185" width="12" height="12"/><rect x="70" y="185" width="12" height="12"/><rect x="135" y="110" width="14" height="14"/><rect x="160" y="110" width="14" height="14"/><rect x="185" y="110" width="14" height="14"/></g>
+        <g fill="#14538f"><rect x="135" y="140" width="14" height="14"/><rect x="160" y="140" width="14" height="14"/><rect x="185" y="140" width="14" height="14"/><rect x="310" y="90" width="16" height="16"/><rect x="340" y="90" width="16" height="16"/><rect x="310" y="120" width="16" height="16"/><rect x="340" y="120" width="16" height="16"/><rect x="310" y="150" width="16" height="16"/><rect x="340" y="150" width="16" height="16"/></g>
+        <rect x="0" y="340" width="480" height="20" fill="#0b3a63"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><b>2009</b><span>Година на основаване</span></div>
+    <div class="stat"><b>16+</b><span>Години опит</span></div>
+    <div class="stat"><b>71+</b><span>Изпълнени проекта</span></div>
+    <div class="stat"><b>4</b><span>Обекта по програми на ЕС</span></div>
+  </div>
+</section>
+
+<section id="za-nas" class="section-pad about">
+  <div class="wrap about-grid">
+    <div class="illustration illu-thermo reveal">
+      <svg viewBox="0 0 200 200" width="70%" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#dfeefb" stroke-width="12"/>
+        <path d="M100 10 A90 90 0 0 1 178 140" fill="none" stroke="#e08a2c" stroke-width="12" stroke-linecap="round"/>
+        <path d="M178 140 A90 90 0 0 1 60 185" fill="none" stroke="#14538f" stroke-width="12" stroke-linecap="round"/>
+        <text x="100" y="95" text-anchor="middle" font-family="IBM Plex Mono" font-size="15" fill="#0b3a63">Енергиен</text>
+        <text x="100" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="15" fill="#0b3a63">одит</text>
+      </svg>
+    </div>
+    <div class="reveal">
+      <span class="tag mono" style="color:var(--amber); font-size:0.78rem;">// За нас</span>
+      <h2 style="margin:12px 0 20px;">16 години в основата на всеки проект</h2>
+      <p>Тийм Експерти ООД е основана през 2009 г. в гр. Варна. През годините сме изградили опит в проектирането, енергийната ефективност и консултирането по европейски програми — работейки по обекти в цялата страна.</p>
+      <p>Продължаваме да се развиваме — надграждаме екипа си с нови знания и умения, за да можем да предлагаме все по-широка гама от инженерни услуги на нашите клиенти.</p>
+      <div class="hero-ctas"><a href="#kontakti" class="btn btn-primary">Свържете се с нас</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="uslugi" class="section-pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">// Какво правим</span>
+      <h2>Предлагаме цялостни инженерни решения</h2>
+      <p>Кликнете върху услуга, за да видите завършени проекти в тази област.</p>
+    </div>
+    <div class="services-grid" id="services-container">
+      <!-- зарежда се динамично от content/site-data.json -->
+    </div>
+  </div>
+</section>
+
+<section id="proekti" class="section-pad" style="background:var(--bg-alt);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="tag">// Доказан опит</span>
+      <h2>Реализирани проекти</h2>
+      <p>Част от обектите, по които сме работили като изпълнител по програми на Европейския съюз.</p>
+    </div>
+    <div class="reveal" id="projects-container" style="background:#fff; border-radius:var(--radius); padding:8px 28px; border:1px solid var(--line);">
+      <!-- зарежда се динамично -->
+    </div>
+    <div class="section-head" style="margin-top:28px; text-align:center;">
+      <p style="background:var(--blue-soft); color:var(--blue-deep); padding:14px 20px; border-radius:12px; display:inline-block;">Освен изброените, фирмата участва като изпълнител в общо <b>71 проекта</b>, финансирани по програми на Европейския съюз.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kontakti" class="section-pad">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <h2>Да обсъдим вашия проект</h2>
+      <p>Свържете се с нас за консултация относно енергийна ефективност, проектиране или европейско финансиране.</p>
+      <a href="mailto:todor@team4experts.com" class="btn btn-primary">Изпратете запитване</a>
+      <div class="contact-details">
+        <div>Адрес<br><b>гр. Варна, ул. Димитър Манчев 30</b></div>
+        <div>Телефон<br><a href="tel:+359889596507" id="contact-phone"><b>+359 889 596 507</b></a></div>
+        <div>Имейл<br><a href="mailto:todor@team4experts.com" id="contact-email"><b>todor@team4experts.com</b></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Тийм Експерти ООД · ЕИК 200858531</div>
+    <div>гр. Варна, България</div>
+  </div>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <h3 id="modal-title"></h3>
+    <p class="modal-desc" id="modal-desc"></p>
+    <div id="modal-projects"></div>
+  </div>
+</div>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+      }
+    });
+  }
+</script>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold:0.15 });
+  els.forEach(el=>io.observe(el));
+
+  let SITE_DATA = null;
+
+  async function loadSiteData(){
+    try{
+      const res = await fetch('content/site-data.json', { cache: 'no-store' });
+      SITE_DATA = await res.json();
+    }catch(err){
+      console.error('Неуспешно зареждане на съдържанието:', err);
+      SITE_DATA = { phone:'', email:'', services:[], projects:[] };
+    }
+    renderContact();
+    renderServices();
+    renderProjects();
+  }
+
+  function renderContact(){
+    if(!SITE_DATA.phone && !SITE_DATA.email) return;
+    const phoneHref = 'tel:' + SITE_DATA.phone.replace(/\s+/g,'');
+    document.getElementById('nav-phone').textContent = '☎ ' + SITE_DATA.phone;
+    document.getElementById('nav-phone').href = phoneHref;
+    document.getElementById('contact-phone').innerHTML = '<b>' + SITE_DATA.phone + '</b>';
+    document.getElementById('contact-phone').href = phoneHref;
+    document.getElementById('contact-email').innerHTML = '<b>' + SITE_DATA.email + '</b>';
+    document.getElementById('contact-email').href = 'mailto:' + SITE_DATA.email;
+  }
+
+  function renderServices(){
+    const container = document.getElementById('services-container');
+    container.innerHTML = '';
+    SITE_DATA.services.forEach(svc=>{
+      const card = document.createElement('button');
+      card.className = 'service-card reveal in';
+      card.innerHTML = `
+        <div class="icon">${svc.icon || '🔧'}</div>
+        <h3>${svc.title}</h3>
+        <p>${svc.short_description || ''}</p>
+        <div class="more">Вижте проекти →</div>
+      `;
+      card.addEventListener('click', ()=> openModal(svc));
+      container.appendChild(card);
+    });
+  }
+
+  function renderProjects(){
+    const container = document.getElementById('projects-container');
+    container.innerHTML = '';
+    SITE_DATA.projects.forEach(p=>{
+      const row = document.createElement('div');
+      row.className = 'project-row';
+      row.style.cssText = 'display:grid; grid-template-columns:150px 1fr auto; gap:24px; align-items:start; padding:24px 0; border-top:1px solid var(--line);';
+      row.innerHTML = `
+        <div class="mono" style="font-size:0.78rem; color:var(--blue); padding-top:4px;">${p.contract_code || ''}</div>
+        <div>
+          <div style="font-weight:600; margin-bottom:6px;">${p.title}</div>
+          <div style="color:var(--muted); font-size:0.88rem;">${p.location || ''}</div>
+        </div>
+        <div class="mono" style="font-size:0.92rem; color:var(--amber); white-space:nowrap;">${p.value || ''}</div>
+      `;
+      container.appendChild(row);
+    });
+  }
+
+  function openModal(svc){
+    document.getElementById('modal-title').textContent = svc.title;
+    document.getElementById('modal-desc').textContent = svc.long_description || svc.short_description || '';
+    const list = SITE_DATA.projects.filter(p => p.category === svc.slug);
+    const holder = document.getElementById('modal-projects');
+    if(list.length === 0){
+      holder.innerHTML = '<div class="modal-empty">Все още няма добавени проекти в тази категория.</div>';
+    }else{
+      holder.innerHTML = list.map(p => `
+        <div class="modal-project">
+          <div class="modal-project-title">${p.title}</div>
+          <div class="modal-project-loc">${p.location || ''}</div>
+          ${p.description ? `<div class="modal-project-desc">${p.description}</div>` : ''}
+          <div class="modal-project-meta">
+            ${p.contract_code ? `<span>${p.contract_code}</span>` : ''}
+            ${p.value ? `<span>${p.value}</span>` : ''}
+          </div>
+          ${(p.images && p.images.length) ? `<div class="modal-project-images">${p.images.map(img => `<img src="${img.image || img}" alt="">`).join('')}</div>` : ''}
+        </div>
+      `).join('');
+    }
+    document.getElementById('modal-overlay').classList.add('open');
+  }
+
+  document.getElementById('modal-close').addEventListener('click', ()=>{
+    document.getElementById('modal-overlay').classList.remove('open');
+  });
+  document.getElementById('modal-overlay').addEventListener('click', (e)=>{
+    if(e.target.id === 'modal-overlay') document.getElementById('modal-overlay').classList.remove('open');
+  });
+
+  loadSiteData();
+</script>
+
+</body>
+</html>
