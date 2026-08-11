@@ -127,7 +127,7 @@
 
 <header>
   <nav class="wrap">
-    <div class="logo"><div class="logo-mark">TE</div>Тийм Експерти</div>
+    <div class="logo"><div class="logo-mark">TE</div>Team Experts</div>
     <div class="nav-links">
       <a href="#uslugi">Услуги</a>
       <a href="#proekti">Проекти</a>
@@ -171,7 +171,7 @@
   <div class="wrap">
     <div class="stat"><b>2009</b><span>Година на основаване</span></div>
     <div class="stat"><b>16+</b><span>Години опит</span></div>
-    <div class="stat"><b>71+</b><span>Изпълнени проекта</span></div>
+    <div class="stat"><b>500+</b><span>Изпълнени проекта</span></div>
     <div class="stat"><b>4</b><span>Обекта по програми на ЕС</span></div>
   </div>
 </section>
@@ -221,7 +221,7 @@
       <!-- зарежда се динамично -->
     </div>
     <div class="section-head" style="margin-top:28px; text-align:center;">
-      <p style="background:var(--blue-soft); color:var(--blue-deep); padding:14px 20px; border-radius:12px; display:inline-block;">Освен изброените, фирмата участва като изпълнител в общо <b>71 проекта</b>, финансирани по програми на Европейския съюз.</p>
+      <p style="background:var(--blue-soft); color:var(--blue-deep); padding:14px 20px; border-radius:12px; display:inline-block;">Освен изброените, фирмата има над <b>500 реализирани проекта</b>, финансирани по програми на Европейския съюз.</p>
     </div>
   </div>
 </section>
@@ -330,7 +330,7 @@
           <div style="font-weight:600; margin-bottom:6px;">${p.title}</div>
           <div style="color:var(--muted); font-size:0.88rem;">${p.location || ''}</div>
         </div>
-        <div class="mono" style="font-size:0.92rem; color:var(--amber); white-space:nowrap;">${p.value || ''}</div>
+        <div></div>
       `;
       container.appendChild(row);
     });
@@ -351,7 +351,6 @@
           ${p.description ? `<div class="modal-project-desc">${p.description}</div>` : ''}
           <div class="modal-project-meta">
             ${p.contract_code ? `<span>${p.contract_code}</span>` : ''}
-            ${p.value ? `<span>${p.value}</span>` : ''}
           </div>
           ${(p.images && p.images.length) ? `<div class="modal-project-images">${p.images.map(img => `<img src="${img.image || img}" alt="">`).join('')}</div>` : ''}
         </div>
