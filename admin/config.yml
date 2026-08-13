@@ -27,6 +27,9 @@ collections:
               - { label: "Заглавие", name: "title", widget: "string" }
               - { label: "Кратко описание (на картичката)", name: "short_description", widget: "text" }
               - { label: "Подробно описание (в прозореца)", name: "long_description", widget: "text" }
+              - { label: "Title (English)", name: "title_en", widget: "string", required: false, hint: "По желание — ако не е попълнено, ще се показва българският текст" }
+              - { label: "Short description (English)", name: "short_description_en", widget: "text", required: false }
+              - { label: "Long description (English)", name: "long_description_en", widget: "text", required: false }
 
           - label: "Проекти"
             name: "projects"
@@ -52,3 +55,6 @@ collections:
                 widget: "list"
                 field: { label: "Снимка", name: "image", widget: "image", required: false }
                 required: false
+              - { label: "Project title (English)", name: "title_en", widget: "string", required: false, hint: "По желание — ако не е попълнено, ще се показва българският текст" }
+              - { label: "Location (English)", name: "location_en", widget: "string", required: false }
+              - { label: "Description (English)", name: "description_en", widget: "text", required: false }
