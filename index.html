@@ -121,6 +121,18 @@
   .modal-project-images{ display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
   .modal-project-images img{ width:90px; height:70px; object-fit:cover; border-radius:6px; border:1px solid var(--line); }
   .modal-empty{ color:var(--muted); font-size:0.92rem; padding:20px 0; text-align:center; }
+
+  /* ---------- LANGUAGE SWITCH ---------- */
+  .lang-switch{
+    display:flex; align-items:center; border:1px solid var(--line); border-radius:999px;
+    padding:3px; gap:2px; font-family:'IBM Plex Mono',monospace; font-size:0.78rem;
+  }
+  .lang-btn{
+    border:none; background:transparent; padding:6px 12px; border-radius:999px; cursor:pointer;
+    color:var(--muted); font-family:inherit; font-size:inherit; font-weight:600; transition:background .15s, color .15s;
+  }
+  .lang-btn.active{ background:var(--blue); color:#fff; }
+  @media (max-width:900px){ .lang-switch{ order:-1; } }
 </style>
 </head>
 <body>
@@ -129,14 +141,18 @@
   <nav class="wrap">
     <div class="logo"><div class="logo-mark">TE</div>Team Experts</div>
     <div class="nav-links">
-      <a href="#uslugi">Услуги</a>
-      <a href="#proekti">Проекти</a>
-      <a href="#za-nas">За нас</a>
-      <a href="#kontakti">Контакти</a>
+      <a href="#uslugi" data-i18n="nav_services">Услуги</a>
+      <a href="#proekti" data-i18n="nav_projects">Проекти</a>
+      <a href="#za-nas" data-i18n="nav_about">За нас</a>
+      <a href="#kontakti" data-i18n="nav_contact">Контакти</a>
     </div>
     <div class="nav-right">
+      <div class="lang-switch" id="lang-switch">
+        <button class="lang-btn" data-lang="bg">БГ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
       <a href="tel:+359889596507" class="phone-badge" id="nav-phone">☎ +359 889 596 507</a>
-      <a href="#kontakti" class="btn btn-primary">Запитване</a>
+      <a href="#kontakti" class="btn btn-primary" data-i18n="nav_inquiry">Запитване</a>
     </div>
   </nav>
 </header>
@@ -144,12 +160,12 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">ЕИК 200858531 · гр. Варна</div>
-      <h1>Инженерни решения за <span class="accent">по-ефективни</span> сгради</h1>
-      <p class="lead">От 2009 г. изпълняваме проекти за енергийна ефективност, проектиране и консултиране по европейски програми — с доказан опит в реални обекти в цялата страна.</p>
+      <div class="eyebrow" data-i18n="hero_eyebrow">ЕИК 200858531 · гр. Варна</div>
+      <h1 data-i18n-html="hero_title">Инженерни решения за <span class="accent">по-ефективни</span> сгради</h1>
+      <p class="lead" data-i18n="hero_lead">От 2009 г. изпълняваме проекти за енергийна ефективност, проектиране и консултиране по европейски програми — с доказан опит в реални обекти в цялата страна.</p>
       <div class="hero-ctas">
-        <a href="#kontakti" class="btn btn-primary">Заявете консултация</a>
-        <a href="#proekti" class="btn btn-ghost">Вижте проектите ни</a>
+        <a href="#kontakti" class="btn btn-primary" data-i18n="hero_cta1">Заявете консултация</a>
+        <a href="#proekti" class="btn btn-ghost" data-i18n="hero_cta2">Вижте проектите ни</a>
       </div>
     </div>
     <div class="illustration illu-skyline reveal">
@@ -169,10 +185,10 @@
 
 <section class="stats">
   <div class="wrap">
-    <div class="stat"><b>2009</b><span>Година на основаване</span></div>
-    <div class="stat"><b>16+</b><span>Години опит</span></div>
-    <div class="stat"><b>500+</b><span>Изпълнени проекта</span></div>
-    <div class="stat"><b>4</b><span>Обекта по програми на ЕС</span></div>
+    <div class="stat"><b>2009</b><span data-i18n="stat_founded">Година на основаване</span></div>
+    <div class="stat"><b>16+</b><span data-i18n="stat_experience">Години опит</span></div>
+    <div class="stat"><b>500+</b><span data-i18n="stat_projects">Изпълнени проекта</span></div>
+    <div class="stat"><b>4</b><span data-i18n="stat_eu">Обекта по програми на ЕС</span></div>
   </div>
 </section>
 
@@ -188,11 +204,11 @@
       </svg>
     </div>
     <div class="reveal">
-      <span class="tag mono" style="color:var(--amber); font-size:0.78rem;">// За нас</span>
-      <h2 style="margin:12px 0 20px;">16 години в основата на всеки проект</h2>
-      <p>Тийм Експерти ООД е основана през 2009 г. в гр. Варна. През годините сме изградили опит в проектирането, енергийната ефективност и консултирането по европейски програми — работейки по обекти в цялата страна.</p>
-      <p>Продължаваме да се развиваме — надграждаме екипа си с нови знания и умения, за да можем да предлагаме все по-широка гама от инженерни услуги на нашите клиенти.</p>
-      <div class="hero-ctas"><a href="#kontakti" class="btn btn-primary">Свържете се с нас</a></div>
+      <span class="tag mono" style="color:var(--amber); font-size:0.78rem;" data-i18n="about_tag">// За нас</span>
+      <h2 style="margin:12px 0 20px;" data-i18n="about_title">16 години в основата на всеки проект</h2>
+      <p data-i18n="about_p1">Тийм Експерти ООД е основана през 2009 г. в гр. Варна. През годините сме изградили опит в проектирането, енергийната ефективност и консултирането по европейски програми — работейки по обекти в цялата страна.</p>
+      <p data-i18n="about_p2">Продължаваме да се развиваме — надграждаме екипа си с нови знания и умения, за да можем да предлагаме все по-широка гама от инженерни услуги на нашите клиенти.</p>
+      <div class="hero-ctas"><a href="#kontakti" class="btn btn-primary" data-i18n="about_cta">Свържете се с нас</a></div>
     </div>
   </div>
 </section>
@@ -200,9 +216,9 @@
 <section id="uslugi" class="section-pad">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tag">// Какво правим</span>
-      <h2>Предлагаме цялостни инженерни решения</h2>
-      <p>Кликнете върху услуга, за да видите завършени проекти в тази област.</p>
+      <span class="tag" data-i18n="services_tag">// Какво правим</span>
+      <h2 data-i18n="services_title">Предлагаме цялостни инженерни решения</h2>
+      <p data-i18n="services_lead">Кликнете върху услуга, за да видите завършени проекти в тази област.</p>
     </div>
     <div class="services-grid" id="services-container">
       <!-- зарежда се динамично от content/site-data.json -->
@@ -213,15 +229,15 @@
 <section id="proekti" class="section-pad" style="background:var(--bg-alt);">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="tag">// Доказан опит</span>
-      <h2>Реализирани проекти</h2>
-      <p>Част от обектите, по които сме работили като изпълнител по програми на Европейския съюз.</p>
+      <span class="tag" data-i18n="projects_tag">// Доказан опит</span>
+      <h2 data-i18n="projects_title">Реализирани проекти</h2>
+      <p data-i18n="projects_lead">Част от обектите, по които сме работили като изпълнител по програми на Европейския съюз.</p>
     </div>
     <div class="reveal" id="projects-container" style="background:#fff; border-radius:var(--radius); padding:8px 28px; border:1px solid var(--line);">
       <!-- зарежда се динамично -->
     </div>
     <div class="section-head" style="margin-top:28px; text-align:center;">
-      <p style="background:var(--blue-soft); color:var(--blue-deep); padding:14px 20px; border-radius:12px; display:inline-block;">Освен изброените, фирмата има над <b>500 реализирани проекта</b>, финансирани по програми на Европейския съюз.</p>
+      <p style="background:var(--blue-soft); color:var(--blue-deep); padding:14px 20px; border-radius:12px; display:inline-block;" data-i18n-html="projects_note">Освен изброените, фирмата има над <b>500 реализирани проекта</b>, финансирани по програми на Европейския съюз.</p>
     </div>
   </div>
 </section>
@@ -229,13 +245,13 @@
 <section id="kontakti" class="section-pad">
   <div class="wrap">
     <div class="contact-box reveal">
-      <h2>Да обсъдим вашия проект</h2>
-      <p>Свържете се с нас за консултация относно енергийна ефективност, проектиране или европейско финансиране.</p>
-      <a href="mailto:todor@team4experts.com" class="btn btn-primary">Изпратете запитване</a>
+      <h2 data-i18n="contact_title">Да обсъдим вашия проект</h2>
+      <p data-i18n="contact_lead">Свържете се с нас за консултация относно енергийна ефективност, проектиране или европейско финансиране.</p>
+      <a href="mailto:todor@team4experts.com" class="btn btn-primary" data-i18n="contact_cta">Изпратете запитване</a>
       <div class="contact-details">
-        <div>Адрес<br><b>гр. Варна, ул. Димитър Манчев 30</b></div>
-        <div>Телефон<br><a href="tel:+359889596507" id="contact-phone"><b>+359 889 596 507</b></a></div>
-        <div>Имейл<br><a href="mailto:todor@team4experts.com" id="contact-email"><b>todor@team4experts.com</b></a></div>
+        <div><span data-i18n="contact_address_label">Адрес</span><br><b data-i18n="contact_address_value">гр. Варна, ул. Димитър Манчев 30</b></div>
+        <div><span data-i18n="contact_phone_label">Телефон</span><br><a href="tel:+359889596507" id="contact-phone"><b>+359 889 596 507</b></a></div>
+        <div><span data-i18n="contact_email_label">Имейл</span><br><a href="mailto:todor@team4experts.com" id="contact-email"><b>todor@team4experts.com</b></a></div>
       </div>
     </div>
   </div>
@@ -243,8 +259,8 @@
 
 <footer>
   <div class="wrap">
-    <div>© 2026 Тийм Експерти ООД · ЕИК 200858531</div>
-    <div>гр. Варна, България</div>
+    <div data-i18n="footer_line1">© 2026 Тийм Експерти ООД · ЕИК 200858531</div>
+    <div data-i18n="footer_line2">гр. Варна, България</div>
   </div>
 </footer>
 
@@ -275,6 +291,134 @@
   els.forEach(el=>io.observe(el));
 
   let SITE_DATA = null;
+
+  /* ---------- I18N ---------- */
+  const TRANSLATIONS = {
+    bg: {
+      page_title: "Тийм Експерти — Инженерни решения и енергийна ефективност",
+      nav_services: "Услуги",
+      nav_projects: "Проекти",
+      nav_about: "За нас",
+      nav_contact: "Контакти",
+      nav_inquiry: "Запитване",
+      hero_eyebrow: "ЕИК 200858531 · гр. Варна",
+      hero_title: 'Инженерни решения за <span class="accent">по-ефективни</span> сгради',
+      hero_lead: "От 2009 г. изпълняваме проекти за енергийна ефективност, проектиране и консултиране по европейски програми — с доказан опит в реални обекти в цялата страна.",
+      hero_cta1: "Заявете консултация",
+      hero_cta2: "Вижте проектите ни",
+      stat_founded: "Година на основаване",
+      stat_experience: "Години опит",
+      stat_projects: "Изпълнени проекта",
+      stat_eu: "Обекта по програми на ЕС",
+      about_tag: "// За нас",
+      about_title: "16 години в основата на всеки проект",
+      about_p1: "Тийм Експерти ООД е основана през 2009 г. в гр. Варна. През годините сме изградили опит в проектирането, енергийната ефективност и консултирането по европейски програми — работейки по обекти в цялата страна.",
+      about_p2: "Продължаваме да се развиваме — надграждаме екипа си с нови знания и умения, за да можем да предлагаме все по-широка гама от инженерни услуги на нашите клиенти.",
+      about_cta: "Свържете се с нас",
+      services_tag: "// Какво правим",
+      services_title: "Предлагаме цялостни инженерни решения",
+      services_lead: "Кликнете върху услуга, за да видите завършени проекти в тази област.",
+      service_more: "Вижте проекти →",
+      projects_tag: "// Доказан опит",
+      projects_title: "Реализирани проекти",
+      projects_lead: "Част от обектите, по които сме работили като изпълнител по програми на Европейския съюз.",
+      projects_note: 'Освен изброените, фирмата има над <b>500 реализирани проекта</b>, финансирани по програми на Европейския съюз.',
+      contact_title: "Да обсъдим вашия проект",
+      contact_lead: "Свържете се с нас за консултация относно енергийна ефективност, проектиране или европейско финансиране.",
+      contact_cta: "Изпратете запитване",
+      contact_address_label: "Адрес",
+      contact_address_value: "гр. Варна, ул. Димитър Манчев 30",
+      contact_phone_label: "Телефон",
+      contact_email_label: "Имейл",
+      footer_line1: "© 2026 Тийм Експерти ООД · ЕИК 200858531",
+      footer_line2: "гр. Варна, България",
+      modal_empty: "Все още няма добавени проекти в тази категория."
+    },
+    en: {
+      page_title: "Team Experts — Engineering Solutions & Energy Efficiency",
+      nav_services: "Services",
+      nav_projects: "Projects",
+      nav_about: "About",
+      nav_contact: "Contact",
+      nav_inquiry: "Get in touch",
+      hero_eyebrow: "Company ID 200858531 · Varna, Bulgaria",
+      hero_title: 'Engineering solutions for <span class="accent">more efficient</span> buildings',
+      hero_lead: "Since 2009 we've delivered energy efficiency, design, and EU-funded consulting projects — with proven results on real sites across the country.",
+      hero_cta1: "Request a consultation",
+      hero_cta2: "View our projects",
+      stat_founded: "Year founded",
+      stat_experience: "Years of experience",
+      stat_projects: "Completed projects",
+      stat_eu: "EU-funded sites",
+      about_tag: "// About us",
+      about_title: "16 years at the foundation of every project",
+      about_p1: "Team Experts Ltd was founded in 2009 in Varna, Bulgaria. Over the years we've built expertise in engineering design, energy efficiency, and EU-funded project consulting — working on sites across the country.",
+      about_p2: "We keep growing — expanding our team's knowledge and skills so we can offer an ever-wider range of engineering services to our clients.",
+      about_cta: "Get in touch",
+      services_tag: "// What we do",
+      services_title: "We offer complete engineering solutions",
+      services_lead: "Click a service to see completed projects in that field.",
+      service_more: "View projects →",
+      projects_tag: "// Proven track record",
+      projects_title: "Completed projects",
+      projects_lead: "A selection of sites we've delivered as a contractor under European Union programs.",
+      projects_note: 'Beyond those listed, the company has completed over <b>500 projects</b> funded through European Union programs.',
+      contact_title: "Let's discuss your project",
+      contact_lead: "Get in touch for a consultation on energy efficiency, engineering design, or EU funding.",
+      contact_cta: "Send an inquiry",
+      contact_address_label: "Address",
+      contact_address_value: "30 Dimitar Manchev St, Varna, Bulgaria",
+      contact_phone_label: "Phone",
+      contact_email_label: "Email",
+      footer_line1: "© 2026 Team Experts Ltd · Company ID 200858531",
+      footer_line2: "Varna, Bulgaria",
+      modal_empty: "No projects added in this category yet."
+    }
+  };
+
+  let LANG = localStorage.getItem('te_lang') || 'bg';
+
+  function applyStaticTranslations(){
+    document.documentElement.lang = LANG;
+    document.title = TRANSLATIONS[LANG].page_title;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(TRANSLATIONS[LANG][key] !== undefined) el.textContent = TRANSLATIONS[LANG][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-html');
+      if(TRANSLATIONS[LANG][key] !== undefined) el.innerHTML = TRANSLATIONS[LANG][key];
+    });
+    document.querySelectorAll('#lang-switch .lang-btn').forEach(btn=>{
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === LANG);
+    });
+  }
+
+  function setLanguage(lang){
+    LANG = lang;
+    localStorage.setItem('te_lang', lang);
+    applyStaticTranslations();
+    if(SITE_DATA){
+      renderServices();
+      renderProjects();
+      document.getElementById('modal-overlay').classList.remove('open');
+    }
+  }
+
+  document.querySelectorAll('#lang-switch .lang-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> setLanguage(btn.getAttribute('data-lang')));
+  });
+
+  // взема поле на текущия език, с автоматично връщане към българското, ако липсва превод
+  function t(obj, field){
+    if(LANG === 'en'){
+      const enVal = obj[field + '_en'];
+      if(enVal && enVal.trim() !== '') return enVal;
+    }
+    return obj[field] || '';
+  }
+
+  applyStaticTranslations();
 
   async function loadSiteData(){
     try{
@@ -308,9 +452,9 @@
       card.className = 'service-card reveal in';
       card.innerHTML = `
         <div class="icon">${svc.icon || '🔧'}</div>
-        <h3>${svc.title}</h3>
-        <p>${svc.short_description || ''}</p>
-        <div class="more">Вижте проекти →</div>
+        <h3>${t(svc,'title')}</h3>
+        <p>${t(svc,'short_description')}</p>
+        <div class="more">${TRANSLATIONS[LANG].service_more}</div>
       `;
       card.addEventListener('click', ()=> openModal(svc));
       container.appendChild(card);
@@ -327,8 +471,8 @@
       row.innerHTML = `
         <div class="mono" style="font-size:0.78rem; color:var(--blue); padding-top:4px;">${p.contract_code || ''}</div>
         <div>
-          <div style="font-weight:600; margin-bottom:6px;">${p.title}</div>
-          <div style="color:var(--muted); font-size:0.88rem;">${p.location || ''}</div>
+          <div style="font-weight:600; margin-bottom:6px;">${t(p,'title')}</div>
+          <div style="color:var(--muted); font-size:0.88rem;">${t(p,'location')}</div>
         </div>
         <div></div>
       `;
@@ -337,18 +481,18 @@
   }
 
   function openModal(svc){
-    document.getElementById('modal-title').textContent = svc.title;
-    document.getElementById('modal-desc').textContent = svc.long_description || svc.short_description || '';
+    document.getElementById('modal-title').textContent = t(svc,'title');
+    document.getElementById('modal-desc').textContent = t(svc,'long_description') || t(svc,'short_description');
     const list = SITE_DATA.projects.filter(p => p.category === svc.slug);
     const holder = document.getElementById('modal-projects');
     if(list.length === 0){
-      holder.innerHTML = '<div class="modal-empty">Все още няма добавени проекти в тази категория.</div>';
+      holder.innerHTML = `<div class="modal-empty">${TRANSLATIONS[LANG].modal_empty}</div>`;
     }else{
       holder.innerHTML = list.map(p => `
         <div class="modal-project">
-          <div class="modal-project-title">${p.title}</div>
-          <div class="modal-project-loc">${p.location || ''}</div>
-          ${p.description ? `<div class="modal-project-desc">${p.description}</div>` : ''}
+          <div class="modal-project-title">${t(p,'title')}</div>
+          <div class="modal-project-loc">${t(p,'location')}</div>
+          ${t(p,'description') ? `<div class="modal-project-desc">${t(p,'description')}</div>` : ''}
           <div class="modal-project-meta">
             ${p.contract_code ? `<span>${p.contract_code}</span>` : ''}
           </div>
