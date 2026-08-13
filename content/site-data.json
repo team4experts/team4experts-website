@@ -7,35 +7,50 @@
       "icon": "🛠️",
       "title": "Проектиране и инженеринг",
       "short_description": "Технически проекти и инженерни решения, съобразени с изискванията на всеки обект.",
-      "long_description": "Изготвяме технически проекти и инженерни решения, съобразени с конкретните изисквания на всеки обект и нормативна база."
+      "long_description": "Изготвяме технически проекти и инженерни решения, съобразени с конкретните изисквания на всеки обект и нормативна база.",
+      "title_en": "Engineering Design",
+      "short_description_en": "Technical designs and engineering solutions tailored to the requirements of each site.",
+      "long_description_en": "We prepare technical designs and engineering solutions tailored to the specific requirements of each site and applicable regulations."
     },
     {
       "slug": "energien-obsledvane",
       "icon": "🌡️",
       "title": "Енергийно обследване на сгради",
       "short_description": "Лицензирани обследвания и препоръки за подобряване на енергийната ефективност.",
-      "long_description": "Извършваме лицензирани енергийни обследвания на сгради и изготвяме конкретни препоръки за подобряване на енергийната им ефективност."
+      "long_description": "Извършваме лицензирани енергийни обследвания на сгради и изготвяме конкретни препоръки за подобряване на енергийната им ефективност.",
+      "title_en": "Building Energy Audits",
+      "short_description_en": "Licensed energy audits and recommendations for improving energy efficiency.",
+      "long_description_en": "We carry out licensed energy audits of buildings and prepare specific recommendations for improving their energy efficiency."
     },
     {
       "slug": "energiyno-planirane",
       "icon": "📐",
       "title": "Енергийно планиране",
       "short_description": "Стратегии и планове за устойчиво енергийно развитие на обекти и територии.",
-      "long_description": "Разработваме стратегии и планове за устойчиво енергийно развитие на обекти и територии, съобразени с актуалните изисквания."
+      "long_description": "Разработваме стратегии и планове за устойчиво енергийно развитие на обекти и територии, съобразени с актуалните изисквания.",
+      "title_en": "Energy Planning",
+      "short_description_en": "Strategies and plans for sustainable energy development of sites and territories.",
+      "long_description_en": "We develop strategies and plans for the sustainable energy development of sites and territories, in line with current requirements."
     },
     {
       "slug": "evroproekti",
       "icon": "🇪🇺",
       "title": "Консултации по европроекти",
       "short_description": "Съдействие при кандидатстване и изпълнение на проекти, финансирани от ЕС.",
-      "long_description": "Съдействаме на клиентите си при кандидатстване, изпълнение и отчитане на проекти, финансирани по програми на Европейския съюз."
+      "long_description": "Съдействаме на клиентите си при кандидатстване, изпълнение и отчитане на проекти, финансирани по програми на Европейския съюз.",
+      "title_en": "EU Project Consulting",
+      "short_description_en": "Support with applying for and implementing EU-funded projects.",
+      "long_description_en": "We support our clients in applying for, implementing, and reporting on projects funded through European Union programs."
     },
     {
       "slug": "upravlenie-proekti",
       "icon": "📋",
       "title": "Управление на проекти",
       "short_description": "Пълно съпровождане на проекти от идея до реализация и отчитане.",
-      "long_description": "Осигуряваме пълно съпровождане на проекти — от идея, през реализация, до финално отчитане пред възложителя."
+      "long_description": "Осигуряваме пълно съпровождане на проекти — от идея, през реализация, до финално отчитане пред възложителя.",
+      "title_en": "Project Management",
+      "short_description_en": "Full project support from concept through delivery and reporting.",
+      "long_description_en": "We provide full project support — from concept, through implementation, to final reporting to the client."
     }
   ],
   "projects": [
@@ -46,7 +61,10 @@
       "value": "9 485.49 €",
       "category": "energien-obsledvane",
       "description": "Изпълнение на мерки за енергийна ефективност на общински спортно-културен комплекс.",
-      "images": []
+      "images": [],
+      "title_en": "Energy renovation of the \"General Suvorov\" Sports and Cultural Complex",
+      "location_en": "Suvorovo",
+      "description_en": "Implementation of energy efficiency measures at a municipal sports and cultural complex."
     },
     {
       "title": "Мерки за енергийна ефективност в три административни сгради на РДПБЗН",
@@ -55,7 +73,10 @@
       "value": "61.36 €",
       "category": "energien-obsledvane",
       "description": "Въвеждане на мерки за енергийна ефективност в административни сгради на пожарната служба.",
-      "images": []
+      "images": [],
+      "title_en": "Energy efficiency measures in three administrative buildings of the Regional Fire Safety Directorate",
+      "location_en": "Kardzhali",
+      "description_en": "Implementation of energy efficiency measures in administrative buildings of the fire service."
     },
     {
       "title": "Мерки за енергийна ефективност в административни сгради на РСПБЗН",
@@ -64,7 +85,10 @@
       "value": "61.36 €",
       "category": "energien-obsledvane",
       "description": "Въвеждане на мерки за енергийна ефективност в две административни сгради на РСПБЗН.",
-      "images": []
+      "images": [],
+      "title_en": "Energy efficiency measures in administrative buildings of the District Fire Safety Service",
+      "location_en": "Ardino and Podkova, Kardzhali region",
+      "description_en": "Implementation of energy efficiency measures in two administrative buildings of the fire service."
     },
     {
       "title": "Мерки за енергийна ефективност в многофамилна жилищна сграда",
@@ -73,7 +97,10 @@
       "value": "5 800.00 €",
       "category": "energien-obsledvane",
       "description": "Внедряване на мерки за енергийна ефективност в многофамилна жилищна сграда.",
-      "images": []
+      "images": [],
+      "title_en": "Energy efficiency measures in a multi-family residential building",
+      "location_en": "2 Gen. Vladimir Zaimov St, Balchik",
+      "description_en": "Implementation of energy efficiency measures in a multi-family residential building."
     }
   ]
 }
