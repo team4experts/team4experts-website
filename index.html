@@ -199,8 +199,8 @@
         <circle cx="100" cy="100" r="90" fill="none" stroke="#dfeefb" stroke-width="12"/>
         <path d="M100 10 A90 90 0 0 1 178 140" fill="none" stroke="#e08a2c" stroke-width="12" stroke-linecap="round"/>
         <path d="M178 140 A90 90 0 0 1 60 185" fill="none" stroke="#14538f" stroke-width="12" stroke-linecap="round"/>
-        <text x="100" y="95" text-anchor="middle" font-family="IBM Plex Mono" font-size="15" fill="#0b3a63">Енергиен</text>
-        <text x="100" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="15" fill="#0b3a63">одит</text>
+        <text id="svg-audit-1" x="100" y="95" text-anchor="middle" font-family="IBM Plex Mono" font-size="15" fill="#0b3a63">Енергиен</text>
+        <text id="svg-audit-2" x="100" y="118" text-anchor="middle" font-family="IBM Plex Mono" font-size="15" fill="#0b3a63">одит</text>
       </svg>
     </div>
     <div class="reveal">
@@ -332,7 +332,9 @@
       contact_email_label: "Имейл",
       footer_line1: "© 2026 Тийм Експерти ООД · ЕИК 200858531",
       footer_line2: "гр. Варна, България",
-      modal_empty: "Все още няма добавени проекти в тази категория."
+      modal_empty: "Все още няма добавени проекти в тази категория.",
+      svg_audit_1: "Енергиен",
+      svg_audit_2: "одит"
     },
     en: {
       page_title: "Team Experts — Engineering Solutions & Energy Efficiency",
@@ -372,7 +374,9 @@
       contact_email_label: "Email",
       footer_line1: "© 2026 Team Experts Ltd · Company ID 200858531",
       footer_line2: "Varna, Bulgaria",
-      modal_empty: "No projects added in this category yet."
+      modal_empty: "No projects added in this category yet.",
+      svg_audit_1: "Energy",
+      svg_audit_2: "Audit"
     }
   };
 
@@ -392,6 +396,10 @@
     document.querySelectorAll('#lang-switch .lang-btn').forEach(btn=>{
       btn.classList.toggle('active', btn.getAttribute('data-lang') === LANG);
     });
+    const svg1 = document.getElementById('svg-audit-1');
+    const svg2 = document.getElementById('svg-audit-2');
+    if(svg1) svg1.textContent = TRANSLATIONS[LANG].svg_audit_1;
+    if(svg2) svg2.textContent = TRANSLATIONS[LANG].svg_audit_2;
   }
 
   function setLanguage(lang){
