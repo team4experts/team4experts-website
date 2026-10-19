@@ -30,6 +30,9 @@ collections:
               - { label: "Title (English)", name: "title_en", widget: "string", required: false, hint: "По желание — ако не е попълнено, ще се показва българският текст" }
               - { label: "Short description (English)", name: "short_description_en", widget: "text", required: false }
               - { label: "Long description (English)", name: "long_description_en", widget: "text", required: false }
+              - { label: "标题 (中文)", name: "title_zh", widget: "string", required: false, hint: "可选 — 如未填写，将显示保加利亚语文本" }
+              - { label: "简短描述 (中文)", name: "short_description_zh", widget: "text", required: false }
+              - { label: "详细描述 (中文)", name: "long_description_zh", widget: "text", required: false }
 
           - label: "Проекти"
             name: "projects"
@@ -58,3 +61,6 @@ collections:
               - { label: "Project title (English)", name: "title_en", widget: "string", required: false, hint: "По желание — ако не е попълнено, ще се показва българският текст" }
               - { label: "Location (English)", name: "location_en", widget: "string", required: false }
               - { label: "Description (English)", name: "description_en", widget: "text", required: false }
+              - { label: "项目名称 (中文)", name: "title_zh", widget: "string", required: false }
+              - { label: "地点 (中文)", name: "location_zh", widget: "string", required: false }
+              - { label: "描述 (中文)", name: "description_zh", widget: "text", required: false }
