@@ -44,11 +44,9 @@
   .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 10px 20px -6px rgba(20,83,143,0.55); }
   .btn-ghost{ border-color:var(--line); color:var(--blue-deep); }
   .btn-ghost:hover{ border-color:var(--blue); }
-  @media (max-width:900px){ .nav-links{ display:none; } }
 
   .hero{ padding:76px 0 90px; background:linear-gradient(180deg,var(--bg-alt) 0%,#fff 100%); }
   .hero .wrap{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; }
-  @media (max-width:900px){ .hero .wrap{ grid-template-columns:1fr; } }
   .eyebrow{ display:inline-flex; align-items:center; gap:9px; font-family:'IBM Plex Mono'; font-size:0.76rem; letter-spacing:.03em; color:var(--blue); background:var(--blue-soft); padding:7px 14px; border-radius:999px; margin-bottom:22px; }
   .hero h1{ font-size:clamp(2.1rem,4.4vw,3.2rem); font-weight:700; line-height:1.12; }
   .hero .accent{ color:var(--amber); }
@@ -59,7 +57,6 @@
   .stats .wrap{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; padding:44px 28px; }
   .stat b{ font-family:'IBM Plex Mono'; font-size:1.9rem; color:#fff; display:block; }
   .stat span{ color:#a9c2da; font-size:0.85rem; }
-  @media (max-width:700px){ .stats .wrap{ grid-template-columns:repeat(2,1fr); } }
 
   .section-pad{ padding:92px 0; }
   .section-head{ max-width:640px; margin:0 auto 52px; text-align:center; }
@@ -69,12 +66,9 @@
 
   .about{ background:var(--bg-alt); }
   .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center; }
-  @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; } }
   .about-grid p{ color:var(--muted); margin:0 0 16px; }
 
   .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-  @media (max-width:900px){ .services-grid{ grid-template-columns:1fr 1fr; } }
-  @media (max-width:620px){ .services-grid{ grid-template-columns:1fr; } }
   .service-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:28px 24px; transition:box-shadow .2s, transform .2s; cursor:pointer; text-align:left; font-family:inherit; }
   .service-card:hover{ box-shadow:0 14px 30px -18px rgba(20,83,143,0.35); transform:translateY(-3px); border-color:var(--blue); }
   .service-card .icon{ width:44px; height:44px; border-radius:10px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:1.2rem; }
@@ -134,7 +128,54 @@
     color:var(--muted); font-family:inherit; font-size:inherit; font-weight:600; transition:background .15s, color .15s;
   }
   .lang-btn.active{ background:var(--blue); color:#fff; }
-  @media (max-width:900px){ .lang-switch{ order:-1; } }
+
+  /* ---------- PROJECT ROWS ---------- */
+  .project-row{
+    display:grid; grid-template-columns:150px 1fr auto; gap:24px;
+    align-items:start; padding:24px 0; border-top:1px solid var(--line);
+  }
+  .project-row:first-child{ border-top:none; }
+
+  /* ---------- MOBILE / TABLET ---------- */
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .hero .wrap{ grid-template-columns:1fr; gap:40px; }
+    .hero .illustration{ order:-1; max-width:460px; margin:0 auto; width:100%; }
+    .about-grid{ grid-template-columns:1fr; gap:36px; }
+    .about-grid .illustration{ max-width:320px; margin:0 auto; }
+    .services-grid{ grid-template-columns:1fr 1fr; }
+    .lang-switch{ order:-1; }
+    .nav-right{ gap:12px; }
+  }
+  @media (max-width:700px){
+    .stats .wrap{ grid-template-columns:repeat(2,1fr); }
+    .section-pad{ padding:64px 0; }
+  }
+  @media (max-width:620px){
+    .wrap{ padding:0 20px; }
+    nav.wrap{ height:70px; }
+    .phone-badge{ display:none; }
+    .nav-right .btn-primary{ padding:10px 16px; font-size:0.82rem; }
+    .lang-switch{ font-size:0.72rem; }
+    .lang-btn{ padding:5px 9px; }
+    .hero{ padding:48px 0 64px; }
+    .hero p.lead{ font-size:1rem; }
+    .hero-ctas{ flex-direction:column; align-items:stretch; }
+    .hero-ctas .btn{ justify-content:center; }
+    .services-grid{ grid-template-columns:1fr; }
+    .contact-box{ padding:32px 20px; border-radius:16px; }
+    .contact-details{ flex-direction:column; gap:16px; text-align:center; }
+    .project-row{ grid-template-columns:1fr; gap:8px; }
+    .project-row > div:last-child{ display:none; }
+    .modal{ padding:28px 22px; }
+    .modal-project-images img{ width:72px; height:56px; }
+  }
+  @media (max-width:480px){
+    .stat b{ font-size:1.5rem; }
+    .logo{ font-size:0.98rem; }
+    .logo-mark{ width:32px; height:32px; }
+    .modal-close{ top:12px; right:12px; width:30px; height:30px; }
+  }
 </style>
 </head>
 <body>
@@ -152,6 +193,7 @@
       <div class="lang-switch" id="lang-switch">
         <button class="lang-btn" data-lang="bg">БГ</button>
         <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
       </div>
       <a href="tel:+359889596507" class="phone-badge" id="nav-phone">☎ +359 889 596 507</a>
       <a href="#kontakti" class="btn btn-primary" data-i18n="nav_inquiry">Запитване</a>
@@ -379,13 +421,56 @@
       modal_empty: "No projects added in this category yet.",
       svg_audit_1: "Energy",
       svg_audit_2: "Audit"
+    },
+    zh: {
+      page_title: "Team Experts — 工程解决方案与能源效率",
+      nav_services: "服务",
+      nav_projects: "项目",
+      nav_about: "关于我们",
+      nav_contact: "联系我们",
+      nav_inquiry: "咨询",
+      hero_eyebrow: "公司编号 200858531 · 保加利亚瓦尔纳",
+      hero_title: '为<span class="accent">更高效</span>的建筑提供工程解决方案',
+      hero_lead: "自2009年以来，我们已在能效、设计和欧盟资助咨询领域交付项目，在全国各地的实际项目中拥有可靠业绩。",
+      hero_cta1: "预约咨询",
+      hero_cta2: "查看我们的项目",
+      stat_founded: "成立年份",
+      stat_experience: "年经验",
+      stat_projects: "已完成项目",
+      stat_eu: "欧盟资助项目",
+      about_tag: "// 关于我们",
+      about_title: "16年，每个项目的基础",
+      about_p1: "Team Experts Ltd 于2009年在保加利亚瓦尔纳成立。多年来，我们在工程设计、能源效率和欧盟资助项目咨询方面积累了专业知识，在全国各地开展项目。",
+      about_p2: "我们持续成长——不断扩展团队的知识和技能，以便为客户提供更广泛的工程服务。",
+      about_cta: "联系我们",
+      services_tag: "// 我们做什么",
+      services_title: "我们提供完整的工程解决方案",
+      services_lead: "点击服务查看该领域的已完成项目。",
+      service_more: "查看项目 →",
+      projects_tag: "// 可靠业绩",
+      projects_title: "已完成项目",
+      projects_lead: "我们作为承包商在欧盟计划下交付的部分项目。",
+      projects_note: '除上述项目外，公司已完成超过 <b>500 个项目</b>，均由欧盟计划资助。',
+      contact_title: "让我们讨论您的项目",
+      contact_lead: "联系我们，获取关于能源效率、工程设计或欧盟资助的咨询。",
+      contact_cta: "发送咨询",
+      contact_address_label: "地址",
+      contact_address_value: "保加利亚瓦尔纳 Dimitar Manchev 街 30 号",
+      contact_phone_label: "电话",
+      contact_email_label: "邮箱",
+      footer_line1: "© 2026 Team Experts Ltd · 公司编号 200858531",
+      footer_line2: "保加利亚瓦尔纳",
+      modal_empty: "该类别尚未添加项目。",
+      svg_audit_1: "能源",
+      svg_audit_2: "审计"
     }
   };
 
   let LANG = localStorage.getItem('te_lang') || 'bg';
+  if(!TRANSLATIONS[LANG]) LANG = 'bg';
 
   function applyStaticTranslations(){
-    document.documentElement.lang = LANG;
+    document.documentElement.lang = LANG === 'zh' ? 'zh-Hans' : LANG;
     document.title = TRANSLATIONS[LANG].page_title;
     document.querySelectorAll('[data-i18n]').forEach(el=>{
       const key = el.getAttribute('data-i18n');
@@ -405,6 +490,7 @@
   }
 
   function setLanguage(lang){
+    if(!TRANSLATIONS[lang]) return;
     LANG = lang;
     localStorage.setItem('te_lang', lang);
     applyStaticTranslations();
@@ -424,6 +510,10 @@
     if(LANG === 'en'){
       const enVal = obj[field + '_en'];
       if(enVal && enVal.trim() !== '') return enVal;
+    }
+    if(LANG === 'zh'){
+      const zhVal = obj[field + '_zh'];
+      if(zhVal && zhVal.trim() !== '') return zhVal;
     }
     return obj[field] || '';
   }
@@ -445,9 +535,10 @@
 
   function renderContact(){
     if(!SITE_DATA.phone && !SITE_DATA.email) return;
-    const phoneHref = 'tel:' + SITE_DATA.phone.replace(/\s+/g,'');
-    document.getElementById('nav-phone').textContent = '☎ ' + SITE_DATA.phone;
-    document.getElementById('nav-phone').href = phoneHref;
+    const phoneHref = 'tel:' + (SITE_DATA.phone || '').replace(/\s+/g,'');
+    const navPhone = document.getElementById('nav-phone');
+    navPhone.textContent = '☎ ' + SITE_DATA.phone;
+    navPhone.href = phoneHref;
     document.getElementById('contact-phone').innerHTML = '<b>' + SITE_DATA.phone + '</b>';
     document.getElementById('contact-phone').href = phoneHref;
     document.getElementById('contact-email').innerHTML = '<b>' + SITE_DATA.email + '</b>';
@@ -457,7 +548,7 @@
   function renderServices(){
     const container = document.getElementById('services-container');
     container.innerHTML = '';
-    SITE_DATA.services.forEach(svc=>{
+    (SITE_DATA.services || []).forEach(svc=>{
       const card = document.createElement('button');
       card.className = 'service-card reveal in';
       card.innerHTML = `
@@ -474,10 +565,9 @@
   function renderProjects(){
     const container = document.getElementById('projects-container');
     container.innerHTML = '';
-    SITE_DATA.projects.forEach(p=>{
+    (SITE_DATA.projects || []).forEach(p=>{
       const row = document.createElement('div');
       row.className = 'project-row';
-      row.style.cssText = 'display:grid; grid-template-columns:150px 1fr auto; gap:24px; align-items:start; padding:24px 0; border-top:1px solid var(--line);';
       row.innerHTML = `
         <div class="mono" style="font-size:0.78rem; color:var(--blue); padding-top:4px;">${p.contract_code || ''}</div>
         <div>
@@ -493,7 +583,7 @@
   function openModal(svc){
     document.getElementById('modal-title').textContent = t(svc,'title');
     document.getElementById('modal-desc').textContent = t(svc,'long_description') || t(svc,'short_description');
-    const list = SITE_DATA.projects.filter(p => p.category === svc.slug);
+    const list = (SITE_DATA.projects || []).filter(p => p.category === svc.slug);
     const holder = document.getElementById('modal-projects');
     if(list.length === 0){
       holder.innerHTML = `<div class="modal-empty">${TRANSLATIONS[LANG].modal_empty}</div>`;
